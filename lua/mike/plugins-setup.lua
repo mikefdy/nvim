@@ -13,15 +13,82 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  -- My plugins here
-  -- use 'foo1/bar1.nvim'
-  -- use 'foo2/bar2.nvim'
+
+  -- Colorscheme
   use 'folke/tokyonight.nvim'
 
+  -- Essential lua functions
+  use 'nvim-lua/plenary.nvim'
+
+  -- Icons
+  use 'nvim-tree/nvim-web-devicons'
+
+  -- LSP
+  use {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
+  }
+
+  -- Autocompletion
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
+
+  -- Treesitter (better syntax highlighting)
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+
+  -- Telescope (fuzzy finder)
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.8',
+    requires = { 'nvim-lua/plenary.nvim' }
+  }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
+  -- File explorer
+  use 'nvim-tree/nvim-tree.lua'
+
+  -- Harpoon (quick file marks)
+  use 'ThePrimeagen/harpoon'
+
+  -- Git
+  use 'lewis6991/gitsigns.nvim'
+  use 'tpope/vim-fugitive'
+
+  -- Commenting
+  use 'numToStr/Comment.nvim'
+
+  -- Autopairs
+  use 'windwp/nvim-autopairs'
+
+  -- Surround
+  use 'kylechui/nvim-surround'
+
+  -- Flash (quick jumps)
+  use 'folke/flash.nvim'
+
+  -- Multi-cursor
+  use 'mg979/vim-visual-multi'
+
+  -- UI
+  use 'nvim-lualine/lualine.nvim'
+  use { 'akinsho/bufferline.nvim', tag = '*' }
+  use 'lukas-reineke/indent-blankline.nvim'
+  use 'folke/which-key.nvim'
+
+  -- Diagnostics
+  use 'folke/trouble.nvim'
+
   -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
-

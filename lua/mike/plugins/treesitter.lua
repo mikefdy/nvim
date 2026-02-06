@@ -1,0 +1,3 @@
+-- Treesitter highlighting and indentation are built into Neovim 0.11+
+-- Parsers can be installed with :TSInstall <language>
+-- Or update all installed parsers with :TSUpdate
